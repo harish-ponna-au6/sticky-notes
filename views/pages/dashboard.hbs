@@ -1,0 +1,81 @@
+<script>
+
+
+    function deleteSticky(id) {
+        fetch(`http://localhost:8080/delete-sticky-fetch/${id}`, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(res => console.log(res.json()))
+        document.getElementById(`${id}`).style.display = "none"
+    }
+</script>
+<style>
+    @media only screen and (max-width: 800px) {
+
+        #happy,
+        #create-sticky {
+            margin: 0;
+            min-width: 180px;
+        }
+
+        #create-sticky {
+            margin: 0;
+            margin-right: 50px;
+        }
+
+    }
+
+    .c-card:hover {
+        opacity: 0.7;
+    }
+</style>
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-2 offset-5" id="happy">
+            <div class="ml-auto text-center" style="background-color:{{color4}};transform:{{deg3}}">
+                <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 10px;width: 10px;">
+                </div>
+                <h5>Happy {{this.day}}</h5>
+            </div>
+        </div>
+        <div id="create-sticky" class="ml-auto text-center"
+            style="background-color:{{color5}};width: 150px;transform:{{deg5}}">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 10px;width: 10px;">
+            </div><a href="/create-sticky" style="text-decoration: none;">
+                <div
+                    style="height:25px;width:25px;display: inline-block;background-color:{{color6}} red;transform:{{deg6}};">
+                    <i class="fas fa-plus " style="color: black;"></i></div><span class="ml-2"
+                    style="color:black;font-size: 20px;">create
+                    sticky
+            </a></span>
+        </div>
+
+    </div>
+    <div class="row mt-5">
+        {{#each notes}}
+        <div id="{{this._id}}" class="m-1 c-card text-center"
+            style="transform:{{this.deg}};width: {{this.width}};height:{{this.height}};background-color:{{this.color}};position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('{{this._id}}')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId={{this._id}}" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">{{this.date}}</p>
+
+                <div>{{this.title}}</div>
+            </a>
+        </div>
+        {{/each}}
+        {{#if stickies}}
+        <div class="text-center mt-5 mx-auto" style="width:220px" id="oops">
+            <div class="text-center" style="transform:{{deg2}};background-color: {{color3}};">
+                <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image"
+                        style=" height: 10px;width: 10px;">
+                </div>
+                <h5>Oops You Have No Stickies!</h5>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</div>

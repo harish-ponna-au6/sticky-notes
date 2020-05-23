@@ -1,0 +1,71 @@
+<style>
+    @media only screen and (max-width: 550px) {
+        #viewing-sticky {
+            position: absolute;
+            right: 10px;
+        }
+    }
+
+    @media only screen and (max-width: 900px) {
+
+        #title,
+        #body {
+            margin: 0;
+        }
+    }
+</style>
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="text-center mt-3" style="background-color: {{color4}};transform:{{deg3}}; width: 100px;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 10px;width: 10px;">
+            </div>
+            <a style="text-decoration: none;color:black" href="/dashboard" style="color:black"><i
+                    class=" text-center fas fa-angle-double-left " style="color:use"></i></span><span
+                    style="margin-left: 15px;">Back</span> </a>
+        </div>
+        <div id="viewing-sticky" class="text-center offset-5 mt-3" style="transform:{{deg6}};width:200px">
+            <div style="background-color: {{color5}};">
+                <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 10px;width: 10px;">
+                </div><span style="font-size: 22px;">Viewing a sticky</span>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="row mt-5">
+        <div id="title" class="text-center col-xl-3 col-lg-4 col-md-12 col-sm-12  offset-1  " style="background-color: {{color6}};transform:{{deg4}};height: 120px;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 10px;width: 10px;">
+            </div>
+            <h5>Title</h5>
+            <p>{{note.title}}</p>
+        </div>
+        <div id="body" class="mt-2 text-center col-xl-6 col-lg-6 col-md-12 col-sm-12 offset-1 " style="background-color:{{color6}};transform:{{deg5}};">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 10px;width: 10px;">
+            </div>
+            <h5>Body</h5>
+            <p>{{note.body}}</p>
+            <div class="text-center col-2 offset-5" style="transform:{{deg3}};width:200px">
+                <a href="/update-sticky?stickyId={{note._id}}"><button class="btn"
+                        style="background-color: {{color8}};">
+                        <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image"
+                                style="height: 10px;width: 10px;">
+                        </div>Update
+                    </button></a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="text-center col-2 offset-5" style="transform:{{deg2}};width:200px">
+            <form method="POST" action="/delete-sticky/{{note._id}}?_method=DELETE">
+                <button type="submit" class="btn" style="background-color: {{color3}};">
+                    <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image"
+                            style="height: 10px;width: 10px;">
+                    </div>Delete
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

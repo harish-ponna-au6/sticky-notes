@@ -1,0 +1,139 @@
+<style>
+    textarea:focus,
+    textarea.form-control:focus,
+    input.form-control:focus,
+    input[type=text]:focus,
+    input[type=password]:focus,
+    input[type=email]:focus,
+    input[type=number]:focus,
+    [type=text].form-control:focus,
+    [type=password].form-control:focus,
+    [type=email].form-control:focus,
+    [type=tel].form-control:focus,
+    [contenteditable].form-control:focus {
+        box-shadow: inset 0 -1px 0 #ddd;
+    }
+
+    #email,
+    #password,
+    #name {
+        background-color: transparent;
+        border: 0;
+        border-bottom: black 2px solid;
+        border-radius: 0;
+        color: black;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+    #login-div {
+        display: inline-block;
+        height: 250px;
+        transform: rotate(-3deg);
+    }
+    #register-div {
+        display: inline-block;
+        height: 310px;
+        transform: rotate(5deg);
+    }
+
+
+
+@media only screen and (max-width: 580px) {
+  #login-div,#register-div{
+    width: 90%;
+    height: 400px;
+    margin-left: 0;
+  }
+}
+@media only screen and (max-width: 991px) {
+  #register-div{
+    margin-left: 0;
+  }
+}
+
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="mt-3 col-4 offset-4 text-center" style="transform:{{deg1}};background-color:{{color1}} ; min-height: 60px;transform: rotate(3deg);">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;"></div>
+            <h4>Sticky Notes Welcomes You!</h4>
+        </div>
+    </div>
+    <div class="row">
+        <!--Login form div start  -->
+        <div id="login-div" class="mt-4 col-xl-5 col-lg-5 col-md-10 col-sm-10 col-12" style="transform:{{deg2}};background-color:{{color2}} ;"
+            style="display: inline-block;height: 500px;">
+            <div class="text-center"><img src="hand-pin.png" class="img-fluid" alt="Responsive image"></div>
+            <u>
+                <h4 class="text-center">Log In</h4>
+            </u>
+            <form action="/login" method="POST">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <input name="email" id="email" type="email" class="form-control"
+                            placeholder="Enter Your Email Here">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10">
+                        <input name="password" id="password" type="password" class="form-control"
+                            placeholder="Enter Your Password">
+                    </div>
+                </div>
+                 <div class="text-center col-2 offset-5" style="transform:{{deg6}};width:200px">
+                    <button type="submit" class="btn" style="background-color: {{color7}};">
+                        <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image"
+                                style="height: 10px;width: 10px;">
+                        </div>Log in
+                    </button>
+                </div>
+            </form>
+        </div>
+        <!--Login form div end  -->
+
+
+        <div id="register-div" class="mt-5 col-xl-5 col-lg-5 col-md-10 col-sm-10 col-12 offset-2" style="transform:{{deg4}};background-color:{{color4}} ;">
+            <div class="text-center"><img src="hand-pin.png" class="img-fluid" alt="Responsive image"></div>
+            <u>
+                <h4 class="text-center">Sign Up</h4>
+            </u>
+            <form action="/register" method="POST">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Username</label>
+                    <div class="col-sm-10">
+                        <input name="name" id="name" type="text" class="form-control"
+                            placeholder="Enter Your name Here">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <input name="email" id="email" type="email" class="form-control"
+                            placeholder="Enter Your Email Here">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10">
+                        <input name="password" id="password" type="password" class="form-control"
+                            placeholder="Enter Your Password">
+                    </div>
+                </div>
+                <div class="text-center col-2 offset-5" style="transform:{{deg6}};width:200px">
+                    <button type="submit" class="btn" style="background-color: {{color7}};">
+                        <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image"
+                                style="height: 10px;width: 10px;">
+                        </div>Sign up
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
