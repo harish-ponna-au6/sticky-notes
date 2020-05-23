@@ -34,7 +34,7 @@ app.use(
     name: "stickySession",
     saveUninitialized: false,
     cookie: {
-      maxAge: 1000 * 60 * 30,
+      maxAge: 1000 * 60 * 60 * 24 * 30,
       httpOnly: true,
       secure: false,
       sameSite: "strict"
@@ -45,6 +45,7 @@ app.use(
 
 app.get("/", function (req, res) {
   function shuffle(array) {
+    if (req.session.userId) return res.redirect("/dashboard")
     var currentIndex = array.length, temporaryValue, randomIndex;
 
     // While there remain elements to shuffle...
@@ -62,7 +63,7 @@ app.get("/", function (req, res) {
 
     return array;
   }
-  arr = ["rgb(137, 250, 250)","#40c4ff", "#cddc39", "#c6ff00", "#64dd17", "#00c853", "#e65100", "#ff8f00", "#ffd600", "#f1ff75", " rgb(94, 218, 63)", "rgb(165, 100, 226)", " rgb(235, 106, 235)", "#0dd3ff"]
+  arr = ["rgb(137, 250, 250)", "#40c4ff", "#cddc39", "#c6ff00", "#64dd17", "#00c853", "#e65100", "#ff8f00", "#ffd600", "#f1ff75", " rgb(94, 218, 63)", "rgb(165, 100, 226)", " rgb(235, 106, 235)", "#0dd3ff"]
   shuffle(arr)
   function randomIntFromInterval(min, max) { // min and max included 
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -78,14 +79,14 @@ app.get("/", function (req, res) {
     color6: arr[6],
     color7: arr[7],
     color8: arr[8],
-    deg0:`rotate(${randomIntFromInterval(-4, 4)}deg)`,
-    deg1:`rotate(${randomIntFromInterval(-4, 4)}deg)`,
-    deg2:`rotate(${randomIntFromInterval(-4, 4)}deg)`,
-    deg3:`rotate(${randomIntFromInterval(-4, 4)}deg)`,
-    deg4:`rotate(${randomIntFromInterval(-4, 4)}deg)`,
-    deg5:`rotate(${randomIntFromInterval(-4, 4)}deg)`,
-    deg6:`rotate(${randomIntFromInterval(-4, 4)}deg)`,
-    deg7:`rotate(${randomIntFromInterval(-4, 4)}deg)`,
+    deg0: `rotate(${randomIntFromInterval(-4, 4)}deg)`,
+    deg1: `rotate(${randomIntFromInterval(-4, 4)}deg)`,
+    deg2: `rotate(${randomIntFromInterval(-4, 4)}deg)`,
+    deg3: `rotate(${randomIntFromInterval(-4, 4)}deg)`,
+    deg4: `rotate(${randomIntFromInterval(-4, 4)}deg)`,
+    deg5: `rotate(${randomIntFromInterval(-4, 4)}deg)`,
+    deg6: `rotate(${randomIntFromInterval(-4, 4)}deg)`,
+    deg7: `rotate(${randomIntFromInterval(-4, 4)}deg)`,
   });
 });
 
