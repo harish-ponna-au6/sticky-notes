@@ -1,0 +1,748 @@
+
+  <div class="container-fluid" style="background-color:#433054b0;position: sticky;top:0;z-index:2">
+      <div class="row">
+          <div class="m-0 ml-3  text-center" style="transform:rotate(2deg);background-color: #64dd17; min-width: 120px;">
+              <div><img src="hand-pin.png" class="m-0 img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+              </div>
+              <a href="/dashboard" style="text-decoration: none; color:black"><span style="color: orange;"><i
+                          class="fas fa-clipboard fa-2x"></i></span><span
+                      style="margin-left:10px;font-size: 25px;font-weight: 500;">Sticky Notes</span></a>
+          </div>
+  
+          <div id="name" class="ml-auto" style="position: absolute;right:90px">
+              <div class="text-center" style="transform:rotate(-2deg);background-color: #ffd600; min-width: 120px;">
+                  <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+                  </div>
+                  <h4>Hi! Harish</h4>
+              </div>
+          </div>
+          <div id="logout" class="ml-auto " style="margin-right: 10px;">
+              <div class="text-center" style="transform:rotate(1deg);">
+                  <form method="POST" action="/logout?_method=DELETE">
+                      <button type="submit" class="btn" style="background-color: #c6ff00;">
+                          <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image"
+                                  style="height: 10px;width: 10px;">
+                          </div>Log out
+                      </button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+<style>
+    @media only screen and (max-width: 800px) {
+
+        #happy,
+        #create-sticky {
+            margin: 0;
+            min-width: 180px;
+        }
+
+        #create-sticky {
+            margin: 0;
+            margin-right: 5px;
+        }
+
+    }
+
+    .c-card:hover {
+        opacity: 0.7;
+    }
+</style>
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-2 offset-5" id="happy">
+            <div class="ml-auto text-center" style="background-color:rgb(165, 100, 226);transform:rotate(3deg)">
+                <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 10px;width: 10px;">
+                </div>
+                <h5>Happy Saturday</h5>
+            </div>
+        </div>
+        <div id="create-sticky" class="ml-auto text-center"
+            style="background-color:#00c853;width: 150px;transform:rotate(-4deg)">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 10px;width: 10px;">
+            </div><a href="/create-sticky" style="text-decoration: none;">
+                <div
+                    style="height:25px;width:25px;display: inline-block;background-color:#e65100 red;transform:;">
+                    <i class="fas fa-plus " style="color: black;"></i></div><span class="ml-2"
+                    style="color:black;font-size: 20px;">create
+                    sticky
+            </a></span>
+        </div>
+
+    </div>
+    <div class="row mt-5">
+        <div id="5ec93ae57a65cf001724e63f" class="m-1 c-card text-center"
+            style="transform:rotate(-4deg);width: 117px;height:165px;background-color:#e65100;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec93ae57a65cf001724e63f')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec93ae57a65cf001724e63f" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Watch firday ds&amp;algo lecture</p>
+            </a>
+        </div>
+        <div id="5ec93afd7a65cf001724e640" class="m-1 c-card text-center"
+            style="transform:rotate(-2deg);width: 176px;height:165px;background-color:#9c27b0;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec93afd7a65cf001724e640')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec93afd7a65cf001724e640" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Project - Sticky Notes harish</p>
+            </a>
+        </div>
+        <div id="5ec93b1f7a65cf001724e641" class="m-1 c-card text-center"
+            style="transform:rotate(-4deg);width: 202px;height:149px;background-color:#ffd600;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec93b1f7a65cf001724e641')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec93b1f7a65cf001724e641" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">NodeJs</p>
+            </a>
+        </div>
+        <div id="5ec93b3f7a65cf001724e642" class="m-1 c-card text-center"
+            style="transform:rotate(-3deg);width: 154px;height:162px;background-color:#4a148c;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec93b3f7a65cf001724e642')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec93b3f7a65cf001724e642" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">restfull api</p>
+            </a>
+        </div>
+        <div id="5ec93b4e7a65cf001724e643" class="m-1 c-card text-center"
+            style="transform:rotate(4deg);width: 185px;height:141px;background-color:#673ab7;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec93b4e7a65cf001724e643')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec93b4e7a65cf001724e643" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">project Almanac</p>
+            </a>
+        </div>
+        <div id="5ec93b987a65cf001724e644" class="m-1 c-card text-center"
+            style="transform:rotate(-3deg);width: 121px;height:150px;background-color:#c6ff00;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec93b987a65cf001724e644')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec93b987a65cf001724e644" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Tangles movie animation watch</p>
+            </a>
+        </div>
+        <div id="5ec93bc77a65cf001724e645" class="m-1 c-card text-center"
+            style="transform:rotate(1deg);width: 168px;height:157px;background-color:#ff4081;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec93bc77a65cf001724e645')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec93bc77a65cf001724e645" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">AWS EC2 Deployment</p>
+            </a>
+        </div>
+        <div id="5ec93be57a65cf001724e646" class="m-1 c-card text-center"
+            style="transform:rotate(1deg);width: 184px;height:111px;background-color:#0288d1;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec93be57a65cf001724e646')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec93be57a65cf001724e646" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">watch How to train Your Dragon</p>
+            </a>
+        </div>
+        <div id="5ec93f6f7a65cf001724e647" class="m-1 c-card text-center"
+            style="transform:rotate(0deg);width: 147px;height:129px;background-color:#00c853;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec93f6f7a65cf001724e647')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec93f6f7a65cf001724e647" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">JavaScript Intro</p>
+            </a>
+        </div>
+        <div id="5ec93f7e7a65cf001724e648" class="m-1 c-card text-center"
+            style="transform:rotate(4deg);width: 168px;height:123px;background-color:#ff8f00;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec93f7e7a65cf001724e648')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec93f7e7a65cf001724e648" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Project - Sticky Notes harish</p>
+            </a>
+        </div>
+        <div id="5ec93fa97a65cf001724e649" class="m-1 c-card text-center"
+            style="transform:rotate(-3deg);width: 136px;height:144px;background-color:#e91e63;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec93fa97a65cf001724e649')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec93fa97a65cf001724e649" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Watch firday ds&amp;algo lecture</p>
+            </a>
+        </div>
+        <div id="5ec93fbf7a65cf001724e64a" class="m-1 c-card text-center"
+            style="transform:rotate(-4deg);width: 187px;height:136px;background-color:#40c4ff;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec93fbf7a65cf001724e64a')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec93fbf7a65cf001724e64a" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Project - Sticky Notes harish</p>
+            </a>
+        </div>
+        <div id="5ec93fd77a65cf001724e64b" class="m-1 c-card text-center"
+            style="transform:rotate(4deg);width: 159px;height:169px;background-color:#ff6d00;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec93fd77a65cf001724e64b')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec93fd77a65cf001724e64b" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">NodeJs</p>
+            </a>
+        </div>
+        <div id="5ec93fe47a65cf001724e64c" class="m-1 c-card text-center"
+            style="transform:rotate(-4deg);width: 211px;height:125px;background-color:#6200ea;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec93fe47a65cf001724e64c')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec93fe47a65cf001724e64c" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">restfull api</p>
+            </a>
+        </div>
+        <div id="5ec93ff27a65cf001724e64d" class="m-1 c-card text-center"
+            style="transform:rotate(0deg);width: 211px;height:141px;background-color:#64dd17;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec93ff27a65cf001724e64d')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec93ff27a65cf001724e64d" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">project Almanac</p>
+            </a>
+        </div>
+        <div id="5ec940007a65cf001724e64e" class="m-1 c-card text-center"
+            style="transform:rotate(-2deg);width: 114px;height:154px;background-color:#3f51b5;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec940007a65cf001724e64e')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec940007a65cf001724e64e" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Tangled movie animation watch</p>
+            </a>
+        </div>
+        <div id="5ec940097a65cf001724e64f" class="m-1 c-card text-center"
+            style="transform:rotate(3deg);width: 194px;height:162px;background-color:#cddc39;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec940097a65cf001724e64f')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec940097a65cf001724e64f" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">AWS EC2 Deployment</p>
+            </a>
+        </div>
+        <div id="5ec940127a65cf001724e650" class="m-1 c-card text-center"
+            style="transform:rotate(4deg);width: 160px;height:116px;background-color:#e91e63;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec940127a65cf001724e650')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec940127a65cf001724e650" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">watch How to train Your Dragon</p>
+            </a>
+        </div>
+        <div id="5ec9401c7a65cf001724e651" class="m-1 c-card text-center"
+            style="transform:rotate(-1deg);width: 126px;height:125px;background-color:#ff4081;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec9401c7a65cf001724e651')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec9401c7a65cf001724e651" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">AWS EC2 Deployment</p>
+            </a>
+        </div>
+        <div id="5ec940267a65cf001724e652" class="m-1 c-card text-center"
+            style="transform:rotate(-3deg);width: 149px;height:142px;background-color:#9c27b0;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec940267a65cf001724e652')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec940267a65cf001724e652" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Project - Sticky Notes harish</p>
+            </a>
+        </div>
+        <div id="5ec940307a65cf001724e653" class="m-1 c-card text-center"
+            style="transform:rotate(3deg);width: 157px;height:113px;background-color:#cddc39;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec940307a65cf001724e653')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec940307a65cf001724e653" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Watch firday ds&amp;algo lecture</p>
+            </a>
+        </div>
+        <div id="5ec940407a65cf001724e654" class="m-1 c-card text-center"
+            style="transform:rotate(4deg);width: 128px;height:165px;background-color:#6200ea;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec940407a65cf001724e654')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec940407a65cf001724e654" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Project - Sticky Notes harish</p>
+            </a>
+        </div>
+        <div id="5ec940477a65cf001724e655" class="m-1 c-card text-center"
+            style="transform:rotate(2deg);width: 204px;height:150px;background-color:#c6ff00;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec940477a65cf001724e655')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec940477a65cf001724e655" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">NodeJs</p>
+            </a>
+        </div>
+        <div id="5ec9405d7a65cf001724e656" class="m-1 c-card text-center"
+            style="transform:rotate(-2deg);width: 117px;height:118px;background-color:#0288d1;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec9405d7a65cf001724e656')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec9405d7a65cf001724e656" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Deno</p>
+            </a>
+        </div>
+        <div id="5ec940747a65cf001724e657" class="m-1 c-card text-center"
+            style="transform:rotate(-3deg);width: 168px;height:117px;background-color:#3f51b5;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec940747a65cf001724e657')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec940747a65cf001724e657" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Watch firday ds&amp;algo lecture</p>
+            </a>
+        </div>
+        <div id="5ec940d97a65cf001724e658" class="m-1 c-card text-center"
+            style="transform:rotate(-4deg);width: 166px;height:147px;background-color:#40c4ff;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec940d97a65cf001724e658')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec940d97a65cf001724e658" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Project - Sticky Notes harish</p>
+            </a>
+        </div>
+        <div id="5ec940ec7a65cf001724e659" class="m-1 c-card text-center"
+            style="transform:rotate(2deg);width: 112px;height:137px;background-color:#ffd600;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec940ec7a65cf001724e659')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec940ec7a65cf001724e659" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">restfull api</p>
+            </a>
+        </div>
+        <div id="5ec940f27a65cf001724e65a" class="m-1 c-card text-center"
+            style="transform:rotate(4deg);width: 189px;height:113px;background-color:#00c853;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec940f27a65cf001724e65a')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec940f27a65cf001724e65a" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">restfull api</p>
+            </a>
+        </div>
+        <div id="5ec940f97a65cf001724e65b" class="m-1 c-card text-center"
+            style="transform:rotate(4deg);width: 218px;height:146px;background-color:#64dd17;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec940f97a65cf001724e65b')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec940f97a65cf001724e65b" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">restfull api</p>
+            </a>
+        </div>
+        <div id="5ec9410d7a65cf001724e65c" class="m-1 c-card text-center"
+            style="transform:rotate(1deg);width: 201px;height:155px;background-color:#4a148c;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec9410d7a65cf001724e65c')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec9410d7a65cf001724e65c" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">ds&amp;algo lecture</p>
+            </a>
+        </div>
+        <div id="5ec941157a65cf001724e65d" class="m-1 c-card text-center"
+            style="transform:rotate(-4deg);width: 115px;height:149px;background-color:#673ab7;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec941157a65cf001724e65d')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec941157a65cf001724e65d" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">ds&amp;algo lecture</p>
+            </a>
+        </div>
+        <div id="5ec9411b7a65cf001724e65e" class="m-1 c-card text-center"
+            style="transform:rotate(0deg);width: 196px;height:124px;background-color:#ff6d00;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec9411b7a65cf001724e65e')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec9411b7a65cf001724e65e" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">ds&amp;algo lecture</p>
+            </a>
+        </div>
+        <div id="5ec941217a65cf001724e65f" class="m-1 c-card text-center"
+            style="transform:rotate(4deg);width: 116px;height:156px;background-color:#e65100;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec941217a65cf001724e65f')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec941217a65cf001724e65f" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">ds&amp;algo lecture</p>
+            </a>
+        </div>
+        <div id="5ec941277a65cf001724e660" class="m-1 c-card text-center"
+            style="transform:rotate(-1deg);width: 111px;height:150px;background-color:#ff8f00;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec941277a65cf001724e660')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec941277a65cf001724e660" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">ds&amp;algo lecture</p>
+            </a>
+        </div>
+        <div id="5ec9412d7a65cf001724e661" class="m-1 c-card text-center"
+            style="transform:rotate(3deg);width: 204px;height:134px;background-color:#00c853;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec9412d7a65cf001724e661')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec9412d7a65cf001724e661" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">ds&amp;algo lecture</p>
+            </a>
+        </div>
+        <div id="5ec941347a65cf001724e662" class="m-1 c-card text-center"
+            style="transform:rotate(2deg);width: 161px;height:139px;background-color:#e91e63;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec941347a65cf001724e662')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec941347a65cf001724e662" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">ds&amp;algo lecture</p>
+            </a>
+        </div>
+        <div id="5ec9413a7a65cf001724e663" class="m-1 c-card text-center"
+            style="transform:rotate(0deg);width: 128px;height:118px;background-color:#ff4081;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec9413a7a65cf001724e663')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec9413a7a65cf001724e663" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">ds&amp;algo lecture</p>
+            </a>
+        </div>
+        <div id="5ec941437a65cf001724e664" class="m-1 c-card text-center"
+            style="transform:rotate(-3deg);width: 175px;height:115px;background-color:#c6ff00;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec941437a65cf001724e664')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec941437a65cf001724e664" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">restfull apids&amp;algo lecture</p>
+            </a>
+        </div>
+        <div id="5ec941567a65cf001724e665" class="m-1 c-card text-center"
+            style="transform:rotate(-2deg);width: 156px;height:135px;background-color:#4a148c;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec941567a65cf001724e665')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec941567a65cf001724e665" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Tangled movie animation watch</p>
+            </a>
+        </div>
+        <div id="5ec9415d7a65cf001724e666" class="m-1 c-card text-center"
+            style="transform:rotate(-2deg);width: 163px;height:166px;background-color:#cddc39;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec9415d7a65cf001724e666')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec9415d7a65cf001724e666" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Tangled movie animation watch</p>
+            </a>
+        </div>
+        <div id="5ec941637a65cf001724e667" class="m-1 c-card text-center"
+            style="transform:rotate(-1deg);width: 134px;height:130px;background-color:#3f51b5;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec941637a65cf001724e667')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec941637a65cf001724e667" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Tangled movie animation watch</p>
+            </a>
+        </div>
+        <div id="5ec941687a65cf001724e668" class="m-1 c-card text-center"
+            style="transform:rotate(3deg);width: 163px;height:147px;background-color:#673ab7;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec941687a65cf001724e668')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec941687a65cf001724e668" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Tangled movie animation watch</p>
+            </a>
+        </div>
+        <div id="5ec9416f7a65cf001724e669" class="m-1 c-card text-center"
+            style="transform:rotate(4deg);width: 161px;height:134px;background-color:#6200ea;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec9416f7a65cf001724e669')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec9416f7a65cf001724e669" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Tangled movie animation watch</p>
+            </a>
+        </div>
+        <div id="5ec941817a65cf001724e66a" class="m-1 c-card text-center"
+            style="transform:rotate(1deg);width: 117px;height:138px;background-color:#e65100;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec941817a65cf001724e66a')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec941817a65cf001724e66a" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Tangled movie animation watch</p>
+            </a>
+        </div>
+        <div id="5ec941877a65cf001724e66b" class="m-1 c-card text-center"
+            style="transform:rotate(2deg);width: 127px;height:152px;background-color:#0288d1;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec941877a65cf001724e66b')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec941877a65cf001724e66b" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Tangled movie animation watch</p>
+            </a>
+        </div>
+        <div id="5ec9418d7a65cf001724e66c" class="m-1 c-card text-center"
+            style="transform:rotate(-4deg);width: 216px;height:123px;background-color:#64dd17;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec9418d7a65cf001724e66c')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec9418d7a65cf001724e66c" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Tangled movie animation watch</p>
+            </a>
+        </div>
+        <div id="5ec941937a65cf001724e66d" class="m-1 c-card text-center"
+            style="transform:rotate(4deg);width: 124px;height:146px;background-color:#ff6d00;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec941937a65cf001724e66d')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec941937a65cf001724e66d" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Tangled movie animation watch</p>
+            </a>
+        </div>
+        <div id="5ec941987a65cf001724e66e" class="m-1 c-card text-center"
+            style="transform:rotate(2deg);width: 154px;height:137px;background-color:#ffd600;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec941987a65cf001724e66e')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec941987a65cf001724e66e" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Tangled movie animation watch</p>
+            </a>
+        </div>
+        <div id="5ec9419d7a65cf001724e66f" class="m-1 c-card text-center"
+            style="transform:rotate(0deg);width: 138px;height:121px;background-color:#40c4ff;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec9419d7a65cf001724e66f')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec9419d7a65cf001724e66f" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Tangled movie animation watch</p>
+            </a>
+        </div>
+        <div id="5ec941a37a65cf001724e670" class="m-1 c-card text-center"
+            style="transform:rotate(0deg);width: 198px;height:120px;background-color:#9c27b0;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec941a37a65cf001724e670')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec941a37a65cf001724e670" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Tangled movie animation watch</p>
+            </a>
+        </div>
+        <div id="5ec941aa7a65cf001724e671" class="m-1 c-card text-center"
+            style="transform:rotate(2deg);width: 192px;height:125px;background-color:#ff8f00;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec941aa7a65cf001724e671')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec941aa7a65cf001724e671" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">Tangled movie animation watch</p>
+            </a>
+        </div>
+        <div id="5ec941b37a65cf001724e672" class="m-1 c-card text-center"
+            style="transform:rotate(-4deg);width: 156px;height:141px;background-color:#4a148c;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec941b37a65cf001724e672')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec941b37a65cf001724e672" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">AWS EC2 Deployment</p>
+            </a>
+        </div>
+        <div id="5ec941b97a65cf001724e673" class="m-1 c-card text-center"
+            style="transform:rotate(-4deg);width: 199px;height:167px;background-color:#40c4ff;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec941b97a65cf001724e673')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec941b97a65cf001724e673" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">AWS EC2 Deployment</p>
+            </a>
+        </div>
+        <div id="5ec941bf7a65cf001724e674" class="m-1 c-card text-center"
+            style="transform:rotate(0deg);width: 200px;height:135px;background-color:#ffd600;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec941bf7a65cf001724e674')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec941bf7a65cf001724e674" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">AWS EC2 Deployment</p>
+            </a>
+        </div>
+        <div id="5ec941c57a65cf001724e675" class="m-1 c-card text-center"
+            style="transform:rotate(2deg);width: 183px;height:133px;background-color:#64dd17;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec941c57a65cf001724e675')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec941c57a65cf001724e675" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">AWS EC2 Deployment</p>
+            </a>
+        </div>
+        <div id="5ec941cb7a65cf001724e676" class="m-1 c-card text-center"
+            style="transform:rotate(-1deg);width: 208px;height:114px;background-color:#0288d1;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec941cb7a65cf001724e676')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec941cb7a65cf001724e676" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">AWS EC2 Deployment</p>
+            </a>
+        </div>
+        <div id="5ec941d77a65cf001724e678" class="m-1 c-card text-center"
+            style="transform:rotate(1deg);width: 167px;height:121px;background-color:#cddc39;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec941d77a65cf001724e678')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec941d77a65cf001724e678" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">AWS EC2 Deployment</p>
+            </a>
+        </div>
+        <div id="5ec941dd7a65cf001724e679" class="m-1 c-card text-center"
+            style="transform:rotate(3deg);width: 167px;height:151px;background-color:#e65100;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec941dd7a65cf001724e679')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec941dd7a65cf001724e679" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">AWS EC2 Deployment</p>
+            </a>
+        </div>
+        <div id="5ec941e67a65cf001724e67a" class="m-1 c-card text-center"
+            style="transform:rotate(-2deg);width: 146px;height:164px;background-color:#3f51b5;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec941e67a65cf001724e67a')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec941e67a65cf001724e67a" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">AWS EC2 Deployment</p>
+            </a>
+        </div>
+        <div id="5ec9461b09f90c00172b80e0" class="m-1 c-card text-center"
+            style="transform:rotate(3deg);width: 129px;height:140px;background-color:#ff4081;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec9461b09f90c00172b80e0')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec9461b09f90c00172b80e0" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">AWS EC2 Deployment</p>
+            </a>
+        </div>
+        <div id="5ec94cb209f90c00172b80e1" class="m-1 c-card text-center"
+            style="transform:rotate(-3deg);width: 185px;height:164px;background-color:#673ab7;position: relative; display: inline-block;">
+            <div><img src="hand-pin.png" class="img-fluid" alt="Responsive image" style="height: 15px;width: 15px;">
+            </div><i onclick="deleteSticky('5ec94cb209f90c00172b80e1')" class="fas fa-trash-alt"
+                style="cursor: pointer;position: absolute;right: 5px;top: 5px;color: black;"></i>
+            <a href="/view-sticky?stickyId=5ec94cb209f90c00172b80e1" style="color:black;text-decoration: none;">
+                <p style="margin-bottom: 0px;">Sat May 23 2020</p>
+
+                <p style="font-size: 20px;">AWS EC2 Deployment</p>
+            </a>
+        </div>
+    </div>
+</div>

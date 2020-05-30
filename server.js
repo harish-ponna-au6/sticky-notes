@@ -90,6 +90,10 @@ app.get("/", function (req, res) {
   });
 });
 
+app.get("/sample-look", (req,res)=>{
+  res.render("sample-look")
+})
+
 app.use(require("./routes/getRoutes"));
 app.use(require("./routes/postRoutes"));
 app.use(require("./routes/deleteRoutes"));
