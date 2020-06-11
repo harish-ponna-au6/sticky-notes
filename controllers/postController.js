@@ -24,7 +24,7 @@ module.exports = {
             if (!email || !password) return res.status(400).send("Enter all fields");
             const user = await User.findOne({ email: email })
             if (!user) throw("Incorrect credentials");
-            const isMatched = compare(password, user.password);
+            const isMatched = await compare(password, user.password);
             if (!isMatched) throw ("Incorrect credentials");
             req.session.userId = user._id;
             req.session.userName = user.name;
